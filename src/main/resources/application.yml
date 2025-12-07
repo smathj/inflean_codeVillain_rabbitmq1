@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: hello-message-queue
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guestuser
+    password: 1234
+    virtual-host: /
+
+server:
+  port: 8080
+
