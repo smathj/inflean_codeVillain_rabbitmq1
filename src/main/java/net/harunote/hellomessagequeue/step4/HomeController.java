@@ -1,4 +1,4 @@
-package net.harunote.hellomessagequeue.step3;
+package net.harunote.hellomessagequeue.step4;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +13,9 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/")
-    public String index(Model model) {
-        return "index";
+    @GetMapping("/news")
+    public String news(Model model) {
+        model.addAttribute("message", "Welcome to RabbitMQ News Sample!");
+        return "news";
     }
 }

@@ -1,4 +1,4 @@
-package net.harunote.hellomessagequeue.step3;
+package net.harunote.hellomessagequeue.step4;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
