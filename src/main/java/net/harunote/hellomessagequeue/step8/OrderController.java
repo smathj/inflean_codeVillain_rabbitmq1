@@ -1,4 +1,4 @@
-package net.harunote.hellomessagequeue.step7;
+package net.harunote.hellomessagequeue.step8;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,11 @@ public class OrderController {
 
     private final OrderProducer orderProducer;
 
+
     @GetMapping
     public ResponseEntity<String> sendOrderMessage(@RequestParam String message) {
 
-        orderProducer.sendShpping(message);
-
+        orderProducer.sendShipping(message);
         return ResponseEntity.ok("Order Completed Message sent: " + message);
-
     }
-
 }
