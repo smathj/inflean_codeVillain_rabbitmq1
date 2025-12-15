@@ -7,7 +7,15 @@ spring:
     port: 5672
     username: guestuser
     password: 1234
-    virtual-host: /
+    listener:
+      simple:
+        retry:
+          enabled: true                       # 재시도 활성화
+          initial-interval: 1000ms            # 첫 재시도 대기 시간 1초
+          max-attempts: 3                     # 최대 재시도 횟수
+          max-interval: 10000ms               # 시도간 최대 대기 시간
+        default-requeue-rejected: false       # 재시도 실패 시 자동으로 DLQ 이동
+
 
 server:
   port: 8080
