@@ -19,7 +19,9 @@ public class MessageProducer {
         rabbitTemplate.execute(channel -> {
 
             try {
-                channel.txSelect(); /// 트랜잭션 시작
+
+                /// 트랜잭션 시작
+                channel.txSelect();
 
                 stockEntity.setProcessed(false);
                 stockEntity.setCreatedAt(LocalDateTime.now());
@@ -35,12 +37,15 @@ public class MessageProducer {
                     throw new RuntimeException("트랜잭션 작업중에 에러 발생");
                 }
 
+                /// 트랜잭션 커밋
                 channel.txCommit();
                 System.out.println("트랜잭션이 정상적으로 처리 되었음!~");
 
 
             } catch(Exception e) {
                 System.out.println("트랜잭션 실패 : " + e.getMessage());
+
+                /// 트랜잭션 롤백
                 channel.txRollback();
                 throw new RuntimeException("트랜잭션 롤백 완료", e);
             } finally {
