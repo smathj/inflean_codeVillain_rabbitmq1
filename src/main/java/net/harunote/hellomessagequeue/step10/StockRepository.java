@@ -1,4 +1,4 @@
-package net.harunote.hellomessagequeue.step9;
+package net.harunote.hellomessagequeue.step10;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

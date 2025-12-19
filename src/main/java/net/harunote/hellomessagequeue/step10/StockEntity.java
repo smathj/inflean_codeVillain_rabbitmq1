@@ -1,4 +1,4 @@
-package net.harunote.hellomessagequeue.step9;
+package net.harunote.hellomessagequeue.step10;
 
 import jakarta.persistence.*;
 import lombok.ToString;
